@@ -119,7 +119,6 @@ function altaAnuncio(){
     else{
         alert('No se pudo crear el anuncio');
     } 
-
 }
 
 /**
@@ -303,10 +302,11 @@ function crearTabla(){
     table.appendChild(tr);
 
     //itero la lista de anuncios -> data
+    // Con for-of recorro cada anuncio
     for (const item of anunciosGuardados) {
         // Creo la fila
         let tr = document.createElement('tr');
-        //Itero cada atributo de cada anuncio
+        //ahora recorro cada atributo de cada anuncio
         for (const property in item) {
             //Creo el td y su dato
             let td = document.createElement('td');
