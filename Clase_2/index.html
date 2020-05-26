@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+        <legend>Datos Personales</legend>
+        <p>
+            <!-- Al label lo asigno a un id existente si quiero (por ej el txtNombre)-->
+            <label for="txtNombre">Nombre:</label>
+            <input id="txtNombre" type="text" name="nombre" autocomplete="off">
+        </p>
+
+        <p>
+            <!-- Cuando voy a hacer una consulta se usa get, y modificar la BD uso post
+            si mando un password por GET, se muestra la contraseña por la url-->
+            <label for="txtClave">Contraseña:</label>
+            <input id="txtClave" type="password" name="clave" autocomplete="off">
+        </p>
+        <p>
+            <label for="txtEmail">Email:</label>
+            <input id="txtEmail" type="email" name="email" autocomplete="off" required>
+        </p>
+        <p>
+            <label>Edad:</label>
+            <input type="number" name="edad" min="18" max="35" autocomplete="off" required>
+        </p>
+        <input type="submit" value="Enviar Datos"/>
+        </fieldset>
+
+        <fieldset>
+            <legend>Deportes</legend>
+            <label for="chkBicicleta">Bicicleta</label> 
+            <input type="checkbox" name="Bicicleta" id="chkBicicleta">
+            <label for="chkNadar">Nadar</label> 
+            <input type="checkbox" name="Nadar" id="chkNadar" checked>
+            <label for="chkVoley">Voley</label> 
+            <input type="checkbox" name="Voley" id="chkVoley">
+        </fieldset>
+
+        <fieldset>
+            <legend>Genero</legend>
+            <!-- Ojo que tienen que tener el mismo NAME para que funcionen como 
+            excluyentes, si tildo uno, se me destilda el otro y asi..-->
+            <label for="rdoFemenino">Femenino</label>
+            <input type="radio" name="sexo" id="rdoFemenino">
+            <label for="rdoMasculino">Masculino</label>
+            <input type="radio" name="sexo" id="rdoMasculino">
+
+        </fieldset>
+
+        <label for="cmbPais">Pais:</label>
+        <!-- el select es el combobox de C#
+        en name va el nombre de la variable que se declararia 
+        con el elemento que estas codeando -->
+        <select name="pais" id="cmbPais">
+            <optgroup label="America">
+                <option value="1">Argentina</option>
+                <option value="2">Uruguay</option>
+                <option value="3">Brasil</option>
+            </optgroup>
+            <optgroup label="Europa">
+                <option value="4">Alemania</option>
+                <option value="5">España</option>
+                <option value="6">Italia</option>
+            </optgroup>
+        </select>
+
+        <!-- Esto es el equivalente a un texto multilinea de C#-->
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    </form>
+
+    <!--si ponemos el script abajo, no vamos a tener error,
+    ya que no hay problema de que no este renderizado un elemento antes de llamar a lo que queremos
+    <script src="./js/script.js"></script>-->
+</body>
+</html>

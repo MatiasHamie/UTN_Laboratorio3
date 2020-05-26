@@ -1,0 +1,104 @@
+
+/* Lo que pasa aca es que el width que 
+pusimos abajo de todo en .p1 o sea 400px,
+ahora van a incluirse el ancho del borde y padding,
+basicamente cuando ponemos Npx, esa medida la dan los
+extremos del borde */
+*{
+    box-sizing: border-box;
+}
+
+p{
+    border-width: 4px;
+    border-color: black;
+    border-style: solid;
+
+    /* padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px; */
+
+    padding: 10px;
+}
+
+/* Para que el borde sea del tamaño
+del contenido mismo, se hace el inline */
+/* .p1{
+    display: inline;
+} */
+
+/* idem arriba, pero aca le podes poner
+heigth y width */
+.p1{
+    display: inline-block;
+    /* width: 400px; */
+    /* Con el vw (Viewport Width) o vh (Viewport
+    Heigth) lo que hago al ponerle 50vw es decirle
+    que quiero que sea el 50% del tamaño
+    del viewport */
+    width: 50vw;
+    text-decoration: none;
+    /* Pongo todo en mayuscula */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    word-spacing: 10px;
+    text-shadow: 1px 2px blue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    background-color: orange;
+    /* 1em es el tamaño de la fuente por 1
+       2em es el tamaño de la fuente por 2 y asi.. */
+    font-size: 2em;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 2px solid black;
+
+    /* Por defecto viene static, y en ese caso
+    no me va a permitir usar "left" por ejemplo*/
+    /* position: relative;
+    left: 100px; */
+
+    /* se queda pegado abajo (en este caso de bottom)
+    y queda fijo en esa posicion aunq me deslice hacia
+    abajo o arriba, puede ser un uso de un footer
+    o la miniatura de un video de youtube, etc... */
+    /* position: fixed;
+    bottom: 0px; */
+
+    /* Es una mezcla de static y fixed, lo que va a 
+    hacer es que cuando este en su posicion ya definida
+    se queda ahi, pero si nos movemos y esa posicion se
+    va de la pantalla, se queda fijo en un margen */
+    position: sticky;
+
+}
+
+/* hover es cuando pasas el mouse por arriba del a */
+a:hover{
+    background-color: orangered;
+}
+
+/* Cuando le haces click que se ponga color salmon */
+a:active{
+    background-color: salmon;
+}
+
+img{
+    /* Le ponemos transparencia */
+    opacity: .5;
+    position: relative;
+    left: -300px;
+    /* que pase de 0.5 a 1 y la position 
+    left 0px ambas en 2 segundos 
+    es una animación básica*/
+    transition: opacity 2s, left 2s;
+}
+
+img:hover{
+    opacity: 1;
+    left: 0px;
+}

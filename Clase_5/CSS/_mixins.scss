@@ -1,0 +1,10 @@
+@mixin mx_footer_header($color: black) {
+    background-color: $color;
+    display: flex;
+    justify-content: space-between;
+    /* si tuviera un logo, y el header sea mas alto
+    iba a tomar todo el alto del mismo para el nav..
+    al poner center los pongo en el centro y quedan como
+    separados*/
+    align-items: center;
+}

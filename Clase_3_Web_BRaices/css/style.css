@@ -1,0 +1,12 @@
+.comentarios{
+    color: white;
+    background-color: rgb(26, 185, 26);
+    text-align: center;
+    font-size: x-large;
+    border-radius: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.navFooter{
+    background-color: gray;
+}

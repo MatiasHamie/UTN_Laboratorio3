@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lobster', cursive;
+    text-decoration: none;
+}
+
+
+/* ----------- Estilos de Formularios --------- */
+
+.titulo {
+    position: relative;
+    color: white;
+    background-color: black;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: fit-content;
+    text-align: center;
+    border-radius: 10px;
+}
+
+form p {
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+}
+
+body {
+    font-family:arial;
+    font-size:1.2em;
+    min-width: 418px;
+}
+
+.formularios {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+form {
+    padding: 15px;
+    width: fit-content;
+    background-color: lightseagreen;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.input {
+    margin-top: 10px;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    border-radius: 5px;
+    width: 250px;
+    font-size: 20px;
+    font-family: 'Pavanam', sans-serif;
+}
+
+label {
+    text-align: center;
+}
+
+label, input {
+    flex-basis: 40px;
+}
+
+/* ------- Boton ------- */
+form>button {
+    height: 40px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 70px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-family: 'Pavanam', sans-serif;
+    background-color: white;
+    color: black;
+}
+
+/* -------  Estilos de tablas de datos ------- */
+
+#tablaDatos {
+    margin-top: 20px; 
+    /* Con esto centro la tabla */
+    margin-left: auto;
+    margin-right: auto;
+    /* ------------------------ */
+    width: 80%;
+    align-self: center;
+    /* width: fit-content; */
+}
+
+#tablaDatos, th, td {
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+caption {
+    margin-bottom: 10px;
+}
+
+th {
+    background-color: lightseagreen;
+}
+
+th,td {
+    padding: 10px;
+}
+
+/* ------------- Media Queries ---------- */
+@media screen and (max-width: 589px){
+    .formularios{
+        flex-direction: column;
+    }
+
+    .formularios>form{
+        margin-top: 20px;
+    }
+
+    /* preguntar */
+    .titulo{
+        margin-left: 0px;
+    }
+}
+/* ------------- Eventos de mouse ---------- */
+
+button:active{
+    background-color: lightcoral;
+}
+
+button:hover{
+    cursor: pointer;
+}

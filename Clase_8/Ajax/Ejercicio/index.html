@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- No olvidarme del type="module" -->
+    <script src="./js/script.js" type="module" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Abrir git bash en el directorio del servidor 
+    despues poner
+    node server (server porqe el archivo .js se llama asi)-->
+    
+    <button id="btnTraer">Traer Personas</button>
+    <br><br>
+
+    <button id="btnTraerF">Traer Personas Fetch</button>
+    <br><br>
+    
+    <div id="divInfo"></div>
+    <br><br><hr><br>
+
+    <h2>Formulario Persona</h2>
+    <form action="#">
+        <input type="text" name="nombre" id="txtNombre" placeholder="Ingrese nombre">
+        <br><br>
+        <input type="text" name="apellido" id="txtApellido" placeholder="Ingrese Apellido">
+        <br><br>
+        <input type="text" name="edad" id="txtEdad" placeholder="Ingrese Edad">
+        <br><br>
+        <button id="btnAlta" type="submit">Alta Persona</button>
+    </form>
+    <br><br><br>
+    <input type="text" name="id" id="txtId" placeholder="Ingrese id">
+    <br><br>
+    <button id="btnBaja">Baja Persona</button>
+</body>
+</html>

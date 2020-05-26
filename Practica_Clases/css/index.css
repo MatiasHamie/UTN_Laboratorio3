@@ -1,0 +1,96 @@
+/* 
+    -- Reglas de estilo --
+    selector{
+        contenido(estilo)
+    }
+
+    --- x ---
+
+    - Hay varias formas de usar css
+    y siempre va a tener prioridad
+    aquel que sea mas especifico -
+
+    1 es por el tipo de etiqueta
+    2 es por el id,  #nombreId
+    3 es por clase,  .nombreClase
+    4 es para todos, *
+
+    5 es para los tipos de etiqueta 
+    que estan adentro de otra 
+
+    por ejemplo, ponele este estilo a
+    las etiquetas2 que esten dentro (o que
+    eean hijos) de la etiqueta1
+
+    etiqueta1 (sin coma solo espacio) etiqueta2{
+        propiedades;
+    }
+
+    cuando dos reglas tienen la misma especifidad,
+    o sea cuando a un elemento lo estilan 2 reglas,
+    gana la especifidad que esta mas abajo
+    6 es igual al 5, pero si no queres que los hijos 
+    de los hijios TAMBIEN sean estilados asi,
+    se pone el > etiqueta1 > etiqueta2{
+        propiedades;
+    }
+
+ */
+h1,h2{
+    color: blue;
+}
+
+#miH1{
+    color: coral;
+}
+
+.rojo{
+    color: red;
+}
+
+div{
+    width: 300px;
+    height: 300px;
+    background-color: blue;
+    background-image: url("../images/blog1.jpg");
+    /* Si el recuadro es mas grande que la imagen
+    podemos ver que se va a repetir n veces, para
+    prevenir eso, ponemos este background-repeat */
+    background-repeat: no-repeat;
+}
+
+*{
+    margin: initial;
+}
+
+h1 p{
+    color: lightcoral;
+}
+
+/** 
+    Todos los elementos que cuyo valor contenga
+    la palabra google
+*/
+[href*="google"]{
+    color: red;
+}
+
+/** 
+    A todos los elementos p que se les pase por encima
+    con el puntero del mouse, que se pongan de color
+    indigo
+
+    lo que esta despues del :nombrePseudoClase
+*/
+p:hover{
+    color: indigo;
+}
+
+/** 
+    Lo que estó después del ::nombrePseudoElemento
+    En este caso es la primer letra de cada parrafo
+    ponela en minúscula
+*/
+p::first-letter{
+    text-transform: lowercase;
+}

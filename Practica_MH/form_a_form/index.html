@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+    <title>Practica HTML</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Datos a enviar</legend>
+        <form action="#" onSubmit="false">
+            <p>Ingrese nombre: <input id="txtNombre" type="text"></p>
+            <p>Ingrese apellido: <input id="txtApellido" type="text"></p>
+            <p>Ingrese edad: <input id="txtEdad" type="text"></p>
+            <p>
+                <label for="chkMasculino">Masculino</label>
+                <input type="checkbox" name="genero" id="chkMasculino">
+            </p>
+            <p>
+                <label for="chkFemenino">Femenino</label>
+                <input type="checkbox" name="genero" id="chkFemenino">
+            </p>
+            <p><button id="btnEnviar">Enviar</button></p>
+        </form>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Datos recibidos</legend>
+            <p>Nombre:<input id="txtNombreRecibido" type="text"></p>
+            <p>Apellido: <input id="txtApellidoRecibido" type="text"></p>
+            <p>Edad: <input id="txtEdadRecibido" type="text"></p>
+            <p>Genero: <input id="txtGeneroRecibido" type="text"></p>
+    </fieldset>
+</body>
+</html>

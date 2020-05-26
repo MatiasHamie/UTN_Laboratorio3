@@ -1,0 +1,83 @@
+<!--------------------------------------------
+    Hamie Matias - TSP - UTNFRA
+    Practica previa al PRE-PARCIAL
+    de laboratorio 3
+    Sin conocimientos de AJAX
+
+    Se volcarán conocimientos sobre
+         HTML - CSS - JS 
+    con insercion de elementos HTML
+    partiendo de una base de datos extraida
+    de Mockaroo para simular un backend
+--------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pavanam&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="titulo">
+        Practica Pre-Parcial
+    </div>
+    <section class="formularios">
+        <form action="#" id="ingresaUsuario" onSubmit="false" autocomplete="off">
+            <p>Ingresar Datos Usuario</p>
+            <div class="input">
+                <label for="txtNombre">Ingrese Nombre: </label>
+                <input type="text" id="txtNombreInput" placeholder="Nombre">
+            </div>
+            <div class="input">
+                <label for="txtApellido">Ingrese Apellido: </label>
+                <input type="text" id="txtApellidoInput" placeholder="Apellido">
+            </div>
+            <div class="input">
+                <label for="txtEdad">Ingrese Edad: </label>
+                <input type="number" id="txtEdadInput" placeholder="Edad">
+            </div>
+            <button id="btnConfirmarUsuario">Confirmar usuario</button>
+        </form>
+        <form>
+            <p>Usuario seleccionado</p>
+            <div class="input">
+                <label for="txtNombre">Nombre</label>
+                <input type="text" id="txtNombreOutput" placeholder="Nombre">
+            </div>
+            <div class="input">
+                <label for="txtApellido">Apellido</label>
+                <input type="text" id="txtApellidoOutput" placeholder="Apellido">
+            </div>
+            <div class="input">
+                <label for="txtEdad">Edad</label>
+                <input type="number" id="txtEdadOutput" placeholder="Edad">
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <table id="tablaDatos">
+            <caption>Datos almacenados hasta el momento</caption>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+            </tr>
+            <tr>
+                <td class="nombre">Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td class="tdNombre">Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+        </table>
+    </section>
+
+    <script src="./js/script.js" type="module"></script>
+</body>
+</html>

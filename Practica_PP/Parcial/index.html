@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- No olvidarme del type="module" -->
+    <script src="./js/script.js" type="module" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <section id="banner">
+            <h1>Practica Parcial</h1>
+        </section>
+    </header>
+    <div class="container">
+        <h2 id="tituloFormulario">Llena el formulario de Alta</h2>
+        <fieldset>
+            <legend>Información Del Anuncio</legend>
+            <form id="formAnuncio" action="#">
+                <label>Titulo:</label><br>
+                <input type="text" id="txtTitulo" placeholder="Titulo" autocomplete="off"><br><br>
+    
+                <label>Transaccion:</label><br><br>
+                <label for="chkVenta">Venta</label>
+                <input type="radio" name="Transacciones" id="chkVenta"><br>
+                <label for="chkVenta">Alquiler</label>
+                <input type="radio" name="Transacciones" id="chkAlquiler"><br><br>
+    
+                <label>Descripcion</label><br>
+                <input type="text" id="txtDescripcion" placeholder="Descripcion" autocomplete="off"><br><br>
+
+                <label>Precio</label><br>
+                <input type="number" min="1" id="txtPrecio" placeholder="Precio" autocomplete="off"><br><br>
+                <label>Cantidad de Baños</label><br>
+                <input type="number" max="10" min="1" id="txtCantBanios" placeholder="Baños" autocomplete="off"><br><br>
+                <label>Cantidad de Autos</label><br>
+                <input type="number" max="10" min="1" id="txtCantAutos" placeholder="Autos" autocomplete="off"><br><br>
+                <label>Cantidad de Dormitorios</label><br>
+                <input type="number" max="10" min="1" id="txtCantDormitorios" placeholder="Dormitorios" autocomplete="off"><br><br>
+
+                <div class="buttonContainer">
+                    <button class="botones" id="btnGuardar">Guardar</button>
+                    <button class="botones" id="btnModificar">Modificar</button>
+                    <button class="botones" id="btnEliminar">Eliminar</button>
+                    <button class="botones" id="btnCancelar">Cancelar</button>
+                    <button class="botones" id="btnTraer">Traer</button>
+                </div>
+            </form>
+        </fieldset>
+        <div id="divSpinner"></div>
+    </div>
+    <section id="tablaInfoAnuncios"></section>
+</body>
+</html>
