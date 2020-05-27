@@ -1,5 +1,5 @@
 /* -----------------------------------
- *   Practica de parcial Hamie Matias
+ *   Primer parcial Hamie Matias
  *   UTN - TSP - Laboratorio 3
   -----------------------------------*/
 
