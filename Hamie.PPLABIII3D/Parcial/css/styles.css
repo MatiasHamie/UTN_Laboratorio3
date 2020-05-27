@@ -111,6 +111,12 @@ hr {
     width: 30%;
 }
 
+#divSpinner {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
 .botones:hover {
     background-color: blue;
     cursor: pointer;
