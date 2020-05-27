@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- No olvidarme del type="module" -->
+    <script src="./js/script.js" type="module" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="./img/iconoBanner.svg" alt="imagen de autos">
+        <nav>
+            <a href="#">Nosotros</a>
+            <a href="#">Anuncios</a>
+            <a href="#">Blog</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+    <section id="tituloConsecionaria">
+        <h1>ADMINISTRACION</h1>
+        <img src="./img/carsonsale.jpg" alt="imagen de autos">
+    </section>
+    <div class="container">
+        <h2 id="tituloFormulario">Llena el formulario de Alta</h2>
+        <fieldset>
+            <legend>Información Del Anuncio</legend>
+            <form id="formAnuncio" action="#">
+                <label>Titulo:</label><br>
+                <input type="text" id="txtTitulo" placeholder="Titulo" autocomplete="off"><br><br>
+
+                <select id="cmbTransaccion">
+                    <option value="-">----  Elegir Transaccion ----</option>
+                    <option value="venta">venta</option>
+                    <option value="alquiler">alquiler</option>
+                    <option value="permuta">permuta</option>
+                </select><br><br>
+    
+                <label>Descripcion</label><br>
+                <input type="text" id="txtDescripcion" placeholder="Descripcion" autocomplete="off"><br><br>
+
+                <label>Precio</label><br>
+                <input type="number" min="1" id="txtPrecio" placeholder="Precio" autocomplete="off"><br><br>
+                
+                <div id="containerVarios">
+                    <img src="./img/car-door.svg" alt="door icon" class="iconoInput"> 
+                    <input type="number" min="1" id="txtCantPuertas" placeholder="Puertas" autocomplete="off"><br><br>
+                    <img src="./img/velocimetro.png" alt="door icon" class="iconoInput"> 
+                    <input type="number" min="1" id="txtCantKms" placeholder="KMs" autocomplete="off"><br><br>
+                    <img src="./img/motor.png" alt="door icon" class="iconoInput"> 
+                    <input type="number" min="1" id="txtPotencia" placeholder="Potencia" autocomplete="off"><br><br>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <div class="buttonContainer">
+        <button class="botones" id="btnGuardar"><img src="./img/save.svg" alt="save icon" class="iconoBotones">  Guardar</button>
+        <button class="botones" id="btnModificar"><img src="./img/edit.svg" alt="modify icon" class="iconoBotones">Modificar</button>
+        <button class="botones" id="btnEliminar"><img src="./img/delete.svg" alt="delete icon" class="iconoBotones">Eliminar</button>
+        <button class="botones" id="btnCancelar"><img src="./img/go-back-left-arrow.svg" alt="cancel icon" class="iconoBotones">Cancelar</button>
+        <!-- <button class="botones" id="btnTraer">Traer</button> -->
+    </div>
+    <div id="divSpinner"></div>
+    <section id="tablaInfoAnuncios"></section>
+    <footer>
+        <!-- Barra de navegación -->
+        <nav class="navFooter">
+            <a href="#">Nosotros</a>
+            <a href="#">Anuncios</a>
+            <a href="#">Blog</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <p>Todos los derechos reservados 2020 &copy;</p>
+
+    </footer>
+</body>
+</html>

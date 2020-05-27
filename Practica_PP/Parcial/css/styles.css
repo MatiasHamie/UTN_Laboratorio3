@@ -55,6 +55,10 @@ button {
     color: white;
 }
 
+#btnModificar, #btnEliminar, #btnCancelar {
+    display: none;
+}
+
 hr {
     width: 30%;
 }

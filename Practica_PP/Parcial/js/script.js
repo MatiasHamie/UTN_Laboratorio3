@@ -14,7 +14,7 @@ let btnGuardar = document.getElementById('btnGuardar');
 let btnEliminar = document.getElementById('btnEliminar');
 let btnModificar = document.getElementById('btnModificar');
 let btnCancelar = document.getElementById('btnCancelar');
-let btnTraer = document.getElementById('btnTraer');
+// let btnTraer = document.getElementById('btnTraer');
 
 //------ spinner / loader ---------
 let divSpinner = document.getElementById('divSpinner');
@@ -28,7 +28,7 @@ let anuncioClickeado;//Este objeto va a ir cambiando a medida q hago click en un
 let anunciosGuardados;//Array de datos
 
 //------ handlers ---------
-window.addEventListener('load', traerDatosFetch);//Cada vez que se cargue la pag html actualiza la tabla
+window.addEventListener('load', traerDatos);//Cada vez que se cargue la pag html actualiza la tabla
 form.addEventListener('submit', (e) => {
     //Cancelo el submit del boton
     e.preventDefault();
@@ -36,8 +36,13 @@ form.addEventListener('submit', (e) => {
 btnGuardar.addEventListener('click', altaAnuncioFetch);
 btnEliminar.addEventListener('click', bajaAnuncioFetch);
 btnModificar.addEventListener('click', modificarAnuncio);
-btnTraer.addEventListener('click', traerDatosFetch);
-btnCancelar.addEventListener('click', cancelar);
+// btnTraer.addEventListener('click', traerDatosFetch);
+btnCancelar.addEventListener('click', () => {
+    cancelar();
+    btnModificar.style.display = 'none';
+    btnEliminar.style.display = 'none';
+    btnCancelar.style.display = 'none';
+});
 
 /**
  * Pide los anuncios guardados en el servidor, y
@@ -76,14 +81,13 @@ function traerDatos(){
  * crea una tabla dinámica con ellos
  */
 function traerDatosFetch(){
-    divSpinner.appendChild(img);//Muestro Spinner
+    // divSpinner.appendChild(img);//Muestro Spinner
     fetch('http://localhost:3000/traer',{ method : 'GET'})
     .then(rtaDelServidor => rtaDelServidor.json()) //A la respuesta la parseo a json
     .then(responseText => {
         //Esa respuesta parseada uso los valores dentro de la key 'data'
         anunciosGuardados = responseText.data;
         crearTabla();
-        divSpinner.removeChild(img);
     })
     .catch(error => console.log(error));
 }
@@ -129,6 +133,7 @@ function altaAnuncio(){
 function altaAnuncioFetch(){
     crearAnuncio();//Si puede crea un anuncio, si no, devuelve null
     if (anuncioNuevo != null) {
+        divSpinner.appendChild(img);
         fetch('http://localhost:3000/alta',{
             method : 'POST',
             headers: { 'content-type' : 'application/json' },
@@ -361,6 +366,10 @@ function getIdFromTable(){
     //los cuales son array de objetos anuncio que se modifican cada vez que se llama a traerDatos();
     let anuncioEncontrado = anunciosGuardados.find(anuncioRecorrido => parseInt(anuncioRecorrido.id) == parseInt(id));
     fillFormWithData(anuncioEncontrado);
+    //Muestro botones
+    btnModificar.style.display = true;
+    btnEliminar.style.display = true;
+    btnCancelar.style.display = true;
 }
 
 /**
@@ -391,6 +400,11 @@ function fillFormWithData(anuncio){
     txtCantDormitorios.value = parseInt(anuncio.num_dormitorio);
     //Me guardo el anuncio que encontre
     anuncioClickeado = anuncio;
+    //Muestro los botones
+    btnModificar.style.display = 'inline';
+    btnEliminar.style.display = 'inline';
+    btnCancelar.style.display = 'inline';
+    
 }
 
 /**
