@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- El reduce devuelve un solo valor unico -->
+    <script>
+      // Averiguar el promedio de sueldos
+      // y si se filtro la tabla por un genero
+      // que se vea el promedio de ese genero 
+
+        let numeros = [2,3,4,5,1];
+      // ---------------------------------
+
+        let total;
+
+        // Recibe un callback y un parametro entero (opcional)
+        // Si yo no paso un valor opcional, previo es el primer elementro del array
+        //  y el actual es el segundo
+        //  el segundo parametro opcional te dice cual es el previo
+        // Esto va a imprimir
+        /*
+            total = numeros.reduce((previo, actual, indice, arr) => {
+                console.log(previo, actual, indice);
+            }, 0)
+            
+            0 2 0
+            undefined 3 1
+            undefined 4 2
+            undefined 5 3
+            undefined 1 4
+            ----------------------------------
+            total = numeros.reduce((previo, actual, indice, arr) => {
+                console.log(previo, actual, indice);
+                return 'sarasa';
+            }, 0)
+            si le agrego el return sarasa
+            0 2 0
+            sarasa 3 1
+            sarasa 4 2
+            sarasa 5 3
+            sarasa 1 4
+        */
+        // Ejemplo final
+        total = numeros.reduce((previo, actual, indice, arr) => {
+            // console.log(previo, actual, indice);
+            return previo+actual;
+        }, 0)
+        // console.log(total);
+
+        let personas = 
+        [
+          { nombre: 'juan', edad: 30, genero: 'masculino'},
+          { nombre: 'andrea', edad: 25, genero: 'femenino'},
+          { nombre: 'miguel', edad: 23, genero: 'masculino'},
+        ];
+
+        /*
+          En la primer iteracion prev es 0 y edad es la edad del objeto actual
+          y asi va iterando, por ende nos va a devolver 78 que es la suma de las edades
+        */
+        let totalEdades;
+        totalEdades = personas.reduce((prev,actual) => prev+actual.edad, 0)
+        // console.log(totalEdades);
+
+        // Buscando la edad del nombre mas grande
+        // Es mas facil filtrar un array de numeros q uno de objetos
+        // 1-> filtro los hombres, Filter me devuelve un nuevo array, asi q 
+        // concateno una funcion con el .
+        // es como [4,2,3,5,7].map()
+        let mayorEdad = personas
+                        .filter(p => p.genero === 'masculino')//Filtro los hombres
+                        .map(per => per.edad)//extraigo su edad
+                        .reduce((previo, actual) => (previo >= actual) ? previo : actual);
+                        //y voy mostrando iteracion tras iteracion del reduce
+                        //dependiendo si es el mas grande o no
+        // console.log(mayorEdad);
+
+        let numeros2 = [21,3,4,5,1];
+        let nombres = ['Juan', 'Pedro', 'Luisa'];
+
+        // Sort esta en el prototype y ordena
+        // esto muestra juan luisa pedro
+        // por default ordena alfabeticamente
+        // pero en los numeros, te los ordena como strings
+        // (en el caso de que no le pase nada)
+        // Para solucionarlo y que ordene por numero
+        // sort recibe un callback
+        // Como "hack" sabemos que a-b puede dar negativo si es menor a q b
+        // y al reves si b > a, entonces ya tenemos -1,0,1 ficticios
+        // console.log(nombres.sort());
+        // console.log(numeros2.sort((a,b) => a-b));
+
+        // -----ORDENAR LAS PERSONAS POR NOMBRE-----
+        // localeCompare es como un stringcompare entre a y b
+        // me va a devolver un array de las personas ordenadas
+        // console.log(personas.sort((a,b) => a.nombre.localeCompare(b.nombre)));
+
+      </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

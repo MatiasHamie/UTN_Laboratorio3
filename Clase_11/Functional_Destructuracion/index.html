@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <script>
+        let numeros = [21,43,65];
+        // let a;
+        // let b;
+        // let c;
+
+        // a = numeros[0];
+        // b = numeros[1];
+        // c = numeros[2];
+        let [a, b, c] = numeros;
+
+        //Como extraer cada variable en un objeto diferente
+        let persona = { nombre: 'juan', edad: 30, genero: 'masculino'};
+
+        // {nombre, genero, edad} puede estar en cualquier orden
+        // siempre y cuando se respeten los nombres
+        let {nombre, genero, edad} = persona;
+        // console.log(nombre, edad, genero);
+
+        // ----------------------------
+        // Como sumar cosas sin saber cuantas son
+        // operador '...' si vienen mas de a y b
+        // vam a estar en un array llamado c
+        function sumar(a, b, ...c){
+            let rta = a + b;
+            // Recordemos que prev es un acumulador
+            // y actual es el obeto[indice] q estoy recorriendo
+            return c.reduce((prev, actual) => prev + actual ,rta)
+        }
+
+        // a = 5, b = 3, c = [5,4,3]
+        // console.log(sumar(5,3, 5,4,3));
+
+        // Estos dos array son iguales pero no 100%
+        // Recordemos que v1 o v2 son punteros a un elemento (arrays)
+        // v1 = direccion de memoria de los valores [3,2,5,4,6] en memoria
+        // v2 = v1, ahora tenemos dos elementos q apuntan a lo mismo
+        // let v1 = [3,2,5,4,6];
+        // let v2 = v1;
+
+        // console.log(v1, v2);
+
+        // Modifico uno y me modifica los dos al mismo tiempo OJO
+        // v2[0] = 100;
+        // console.log(v1, v2);
+        
+        // Lo que se deberia hacer es un MAP para tener el mismo array o
+        // uso el operador ...
+        // let v1 = [3,2,5,4,6];
+        // let v2 = [...v1];
+
+        // v2[0] = 100;
+        // console.log(v1, v2);
+
+        // Eliminar repetidos
+        let x = [3,2,5,6,4,3,6,3];
+        // let miSet = new Set(x);
+
+        // No es un array, es un objeto, y desaparecieron los repetidos
+        // console.log(miSet);
+        // Ahora lo volvemos un array
+        // let sinRepetidos = [...miSet];
+        // console.log(sinRepetidos);
+
+        // unique me filtra los repetidos devolviendome un array nuevo
+        // recordemos que function != () => {}
+        // es que la arrow function pierde el this
+        // this es el array que esta ejecutando el metodo unique
+        // como se lo agregue a ARRAY, cualquier array dentro del programa
+        // va a tener el metodo unique
+        Array.prototype.unique = function(){
+            return [...new Set(this)];
+        };
+
+        console.log(x.unique());
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
