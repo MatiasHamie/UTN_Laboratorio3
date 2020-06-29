@@ -1,0 +1,196 @@
+* {
+    text-decoration: none;
+}
+
+#titulo{
+    font-family: 'Krona One', sans-serif;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+}
+
+h2,h3,legend{
+    font-family: 'Cairo', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    background-color: cornflowerblue;
+    align-items: center;
+}
+
+#imgAuto {
+    height: 100px;
+}
+
+/* #tituloConsecionaria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+/* #tituloConsecionaria > img {
+    height: auto;
+    width: 70%;
+} */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+form>label{
+    font-weight: bold;
+}
+
+form {
+    margin-right: 10px;
+}
+
+#cmbTransaccion {
+    width: 100%;
+}
+
+select {
+    text-align: center;
+    text-align-last: center;
+}
+option {
+    text-align: left;
+}
+
+input {
+    border: none;
+    background-color: lightgray;
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.iconoInput {
+    height: 30px;
+    width: 30px;
+}
+
+.iconoBotones {
+    height: 18px;
+    width: 18px;
+}
+
+.buttonContainer {
+    display: flex-box;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botones {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#containerVarios {
+    display: flex;
+    direction: row;
+}
+
+#containerVarios > input {
+    height: 25px;
+    margin-left: 5px;
+}
+
+fieldset {
+    width: 50%;
+}
+
+fieldset legend {
+    font-size: 20px;
+}
+
+button {
+    border: none;
+    padding: 7px 11px;
+    background-color: lightseagreen;
+    color: white;
+}
+hr {
+    width: 30%;
+}
+div a {
+    margin-left: 30px;
+    color: white;
+    padding: 5px 10px;
+}
+
+#footer {
+    height: 112px;
+}
+  
+#footer p {
+    color: white;
+    margin-left: 10px;
+}
+
+/* #btnModificar, #btnEliminar, #btnCancelar {
+    display: none;
+} */
+
+
+/* #divSpinner {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+} */
+
+/* .botones:hover {
+    background-color: blue;
+    cursor: pointer;
+} */
+
+/* #tablaDatos {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    width: fit-content;
+    border-collapse: collapse;
+} */
+
+/* th {
+    background-color: lightcoral;
+} */
+
+/* #tablaDatos, th, td{
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+} */
+
+/* @media screen and (max-width: 600px){
+    footer{
+        flex-direction: column;
+        margin-top: 0;
+    }
+} */
+
+/* header, footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+} */
+
+
+/* nav {
+    display: flex;
+} */
+  

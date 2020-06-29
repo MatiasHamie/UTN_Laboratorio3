@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font awesome CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&family=Krona+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <!-- No olvidarme del type="module" -->
+    <script src="./js/script.js" type="module" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="<div class="container-fluid>
+        <div class="row justify-content-center">
+            <div class="container-fluid">
+                <div class="col">
+                    <div class="header bg-primary d-flex flex-row align-items-center justify-content-around">
+                        <i class="fas fa-car-crash fa-6x p-3 text-white"></i>
+                        <div class="nav">
+                            <a href="#">Nosotros</a>
+                            <a href="#">Anuncios</a>
+                            <a href="#">Blog</a>
+                            <a href="#">Contacto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="row d-flex justify-content-center">
+                <div class="row justify-content-center d-flex flex-column d-inline-flex">
+                    <div class="col">
+                        <p id="titulo" class="text-white bg-primary mt-5 p-3">
+                            ADMINISTRACION
+                        </p>
+                        <img class="align-self-center" id="imgAuto" src="./img/carsonsale.jpg" alt="imagen de autos">
+                    </div>
+                </div>
+                <div class="row col-12 d-flex flex-column justify-content-center align-content-center">
+                    <h3 id="tituloFormulario" class="text-center">Llena el formulario de Alta</h3>
+                    <!-- <fieldset> -->
+                    <fieldset class=" border p-2 text-center">
+                        <legend class="">Datos del vehiculo</legend>
+                        <form id="formAnuncio" action="#">
+                            <div class="form-group">
+                                <label>Titulo:</label>
+                                <input type="text" id="txtTitulo" placeholder="Titulo" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <select id="cmbTransaccion">
+                                    <option value="-">---- Elegir Transaccion ----</option>
+                                    <option value="venta">venta</option>
+                                    <option value="alquiler">alquiler</option>
+                                    <option value="permuta">permuta</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Descripcion</label>
+                                <input type="text" id="txtDescripcion" placeholder="Descripcion" autocomplete="off">    
+                            </div>
+
+                            <div class="form-group">
+                                <label>Precio</label>
+                                <input type="number" min="1" id="txtPrecio" placeholder="Precio" autocomplete="off">
+                            </div>
+                          
+                            .
+                            <div class="form-group" id="containerVarios">
+                                <img src="./img/car-door.svg" alt="door icon" class="iconoInput">
+                                <input type="number" min="1" id="txtCantPuertas" placeholder="Puertas"
+                                    autocomplete="off">
+                                <img src="./img/velocimetro.png" alt="door icon" class="iconoInput">
+                                <input type="number" min="1" id="txtCantKms" placeholder="KMs" autocomplete="off">
+                                <img src="./img/motor.png" alt="door icon" class="iconoInput">
+                                <input type="number" min="1" id="txtPotencia" placeholder="Potencia" autocomplete="off">
+                            </div>
+                        </form>
+                    </fieldset>
+                    <!-- </fieldset> -->
+                </div>
+                <div class="row mt-5 buttonContainer justify-content-between col-6">
+                    <button class="botones bg-success" id="btnGuardar">
+                        <i class="fas fa-save"></i>
+                        Guardar
+                    </button>
+                    <button class="botones bg-warning" id="btnModificar">
+                        <i class="fas fa-edit"></i> 
+                        Modificar
+                    </button>
+                    <button class="botones bg-danger" id="btnEliminar">
+                        <i class="fas fa-trash-alt"></i>
+                         Eliminar
+                        </button>
+                    <button class="botones bg-primary" id="btnCancelar">
+                        <i class="fas fa-undo-alt"></i>
+                         Cancelar
+                    </button>
+                    
+                    <!-- <button class="botones" id="btnTraer">Traer</button> -->
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <input id="rdo" type="radio">
+                    <label for="">Titulo</label>
+                </div>
+                <div class="col">
+                    <input id="rdo" type="radio">
+                    <label for="">Transaccion</label>
+                </div>
+                <div class="col">
+                    <input id="rdo" type="radio">
+                    <label for="">Descripcion</label>
+                </div>
+                <div class="col">
+                    <input id="rdo" type="radio">
+                    <label for="">Precio</label>
+                </div>
+            </div>
+            <div class="row align-content-center">
+                <div class="col">
+                    <div class="" id="divSpinner"></div>
+                    <div id="tablaInfoAnuncios"></div>
+                </div>
+            </div>    
+        </div>
+    
+        <div class="row justify-content-center">
+            <div class="container-fluid">
+                <div id="footer"
+                    class="col-12 footer bg-primary d-flex d-inline-flex flex-row align-items-center justify-content-around mt-5">
+                    <div class="p text-white align-self-center">Todos los derechos reservados 2020 &copy;</div>
+                    <div class="nav">
+                        <a href="#">Nosotros</a>
+                        <a href="#">Anuncios</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contacto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

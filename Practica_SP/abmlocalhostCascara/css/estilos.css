@@ -1,0 +1,17 @@
+h2,label {
+    color: white;
+}
+
+img {
+    height: 100px;
+    width: 170px;
+}
+
+form {
+    background-color: lightslategray;
+}
+
+td > img {
+    height: 70px;
+    width: 85px;
+}
