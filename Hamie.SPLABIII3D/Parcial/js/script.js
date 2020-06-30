@@ -5,9 +5,12 @@
 
 //------ Importo la clase anuncio ---------
 import { Anuncio_Auto } from "./entidades.js";
+import { Etransaccion } from "./app.js";
 
 //------ formulario ---------
 let form = document.forms[0];
+let transaccionEnumFiltro = document.getElementById('cmbTransaccionFiltro');
+let txtPromedio = document.getElementById('txtPromedio');
 
 //------ botones ---------
 let btnGuardar = document.getElementById("btnGuardar");
@@ -19,6 +22,7 @@ let btnPreferencias = document.getElementById('btnPreferencias');
 let btnFiltrarCampos = document.getElementById('btnFiltrarCampos');
 // let transaccion = cmbTransaccion.optionts(cmbTransaccion.selectedIndex).value;
 let checkboxContainer = document.querySelectorAll(".checkboxContainer input");
+let checkboxesChecked = {};
 
 //------ spinner / loader ---------
 let divSpinner = document.getElementById("divSpinner");
@@ -30,12 +34,46 @@ img.setAttribute("alt", "Gif del Loader");
 let anuncioNuevo; //Anuncio creado cuando se hace el submit
 let anuncioClickeado; //Este objeto va a ir cambiando a medida q hago click en un td
 let anunciosGuardados; //Array de datos
+let anunciosFiltrados = []; //Filtrados por los checkboxes
 
 //------ handlers ---------
 window.addEventListener("load", () => {
   traerDatos();
-  verificarCheckboxesChecked();
+  leerPrefLS();
+  inicializarEnumTypescript();
 }); //Cada vez que se cargue la pag html actualiza la tabla
+
+function inicializarEnumTypescript(){
+  for (const key in Etransaccion) {
+    if(isNaN(key)){
+      let option = document.createElement('option');
+      let texto = document.createTextNode(key);
+      option.appendChild(texto);
+      option.setAttribute('value', key);
+      console.log(option);
+      transaccionEnumFiltro.appendChild(option);
+    }
+  }
+}
+
+//----- PROMEDIO ------
+// Manejo del enum cuando cambia el select
+transaccionEnumFiltro.addEventListener('change', (e) => {
+  // console.log(e.target.value.toLowerCase());
+  const stringDeBusqueda = e.target.value.toLowerCase();
+  console.log(stringDeBusqueda);
+  // console.log(anunciosGuardados);
+  const anunciosEncontrados = anunciosGuardados.filter((anuncio) => {
+      return (anuncio.transaccion.toLowerCase().includes(stringDeBusqueda));
+  })
+  var promedio = anunciosEncontrados
+            .map(anuncio => parseFloat(anuncio.precio))//extraigo su precio
+            .reduce((previo,actual) => previo+actual)/anunciosEncontrados.length;
+  
+  console.log(promedio);
+  txtPromedio.value = promedio;
+  refrescarTabla(divTabla, crearTabla(anunciosEncontrados));
+})
 
 form.addEventListener("submit", (e) => {
   //Cancelo el submit del boton
@@ -70,8 +108,18 @@ function traerDatos() {
       if (xhr.status === 200) {
         console.log("se comunico ok");
         anunciosGuardados = JSON.parse(xhr.responseText).data;
+        
         verificarCheckboxesChecked();
-        guardarAnunciosLS(anunciosGuardados);
+        // console.log('tamanio'+ checkboxesChecked.count);
+        // verificarCheckboxesChecked(checkboxesChecked);
+        // guardarPrefLS(checkboxesChecked);
+        if(checkboxesChecked != ''){
+          console.log('asd');
+        }
+        if(!checkboxesChecked)
+          console.log('No hay preferencias del usuario para leer');
+        else
+
         refrescarTabla(divTabla, crearTabla(anunciosGuardados));
       } else {
         console.log("todo mal");
@@ -108,45 +156,46 @@ busqueda.addEventListener('keyup', (e) => {
   refrescarTabla(divTabla, crearTabla(anunciosEncontrados));
 })
 
-function guardarAnunciosLS(anuncios){
-  localStorage.setItem("anuncios", JSON.stringify(anuncios));
-  console.log('Anuncios guardados');
-}
-
 function guardarPrefLS(checkboxes){
   localStorage.setItem("preferencias", JSON.stringify(checkboxesChecked));
   console.log('Preferencias guardadas');
 }
 
-btnFiltrarCampos.addEventListener('click',() => {
-  // let mayorPrecio = anunciosGuardados 
+function leerPrefLS(){
+  let aux = localStorage.getItem("preferencias");
+  if(aux){
+    checkboxesChecked = JSON.parse(aux);
+    inicializoContainerCheckboxes(checkboxesChecked);
+  } else {
+    inicializarPrefenciasCheckboxes();
+  }
+}
 
-  var promedio = anunciosGuardados
-            .map(anuncio => parseFloat(anuncio.precio))//extraigo su precio
-            .reduce((previo,actual) => previo+actual)/anunciosGuardados.length;
-  
-            console.log(promedio);
+function inicializoContainerCheckboxes(chequeados){
+  for (const key in chequeados) {
+    if(key != 'id'){
+      const item = document.getElementById(key);
+      item.checked = chequeados[key];
+    }
+  }
 
-  // .reduce(function ({contador, acumulador}, precio) => (function {contador: contador+1, acumulador: acumulador + parseFloat(precio)})
-});
+  verificarCheckboxesChecked();
+}
 
-
-let checkboxesChecked = {};
+function inicializarPrefenciasCheckboxes(){
+  checkboxContainer.forEach((checkbox) => {
+    checkboxesChecked[checkbox.id] = checkbox.checked;
+  });
+}
 
 function verificarCheckboxesChecked() {
   checkboxContainer.forEach((checkbox) => {
     checkbox.addEventListener("click", (event) => {
-      let anunciosFiltrados = [];
-      let preferencias = [];
       checkboxesChecked["id"] = true;
 
       checkboxContainer.forEach((checkbox) => {
         checkboxesChecked[checkbox.id] = checkbox.checked;
       });
-      // console.log(checkboxesChecked);
-      // console.log(JSON.stringify(checkboxesChecked));
-      // console.log(JSON.stringify(anunciosGuardados));
-      // localStorage.setItem("anuncios", JSON.stringify(anunciosGuardados));
 
       console.log(JSON.parse(localStorage.getItem('anuncios')));
 
@@ -172,13 +221,12 @@ function verificarCheckboxesChecked() {
           return payload;
         });
       }
-
-      guardarAnunciosLS(anunciosFiltrados);
       guardarPrefLS(checkboxesChecked);
       refrescarTabla(divTabla, crearTabla(anunciosFiltrados));
     });
   });
 }
+
 
 /**
  * Llama a crear anuncio, el cual modifica

@@ -1,17 +1,6 @@
-class Anuncio {
-    constructor(id, titulo, transaccion, descripcion, precio) {
-        this.id = id;
-        this.titulo = titulo;
-        this.transaccion = transaccion;
-        this.descripcion = descripcion;
-        this.precio = precio;
-    }
-}
-export class Anuncio_Auto extends Anuncio {
-    constructor(id, titulo, transaccion, descripcion, precio, num_puertas, num_KMs, potencia) {
-        super(id, titulo, transaccion, descripcion, precio);
-        this.num_puertas = num_puertas;
-        this.num_KMs = num_KMs;
-        this.potencia = potencia;
-    }
-}
+export var Etransaccion;
+(function (Etransaccion) {
+    Etransaccion[Etransaccion["Venta"] = 0] = "Venta";
+    Etransaccion[Etransaccion["Alquiler"] = 1] = "Alquiler";
+    Etransaccion[Etransaccion["Permuta"] = 2] = "Permuta";
+})(Etransaccion || (Etransaccion = {}));
